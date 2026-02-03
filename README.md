@@ -2,7 +2,7 @@
 
 A production-grade Python implementation of a healthcare provider entity-resolution system that can ingest data from multiple sources, normalize fields, apply blocking to reduce candidate pairs, compute hybrid similarity scores, auto-merge high-confidence pairs, and route borderline pairs to human audit.
 
-## 🎯 Features
+## Features
 
 - **Multi-Source Data Ingestion**: Support for CSV, Parquet, and JSON formats from S3-compatible storage
 - **Advanced Normalization**: Name, affiliation, address, phone, and email standardization using spaCy, libpostal, and fuzzy matching
@@ -13,7 +13,7 @@ A production-grade Python implementation of a healthcare provider entity-resolut
 - **Performance Monitoring**: Real-time dashboards and comprehensive reporting
 - **Production Ready**: Docker containerization, CI/CD pipeline, and comprehensive testing
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ProviderVerify Pipeline
@@ -26,14 +26,14 @@ ProviderVerify Pipeline
 └── Reporting (performance metrics)
 ```
 
-## 📋 Requirements
+## Requirements
 
 - Python 3.9+
 - Docker (optional, for containerized deployment)
 - 8GB+ RAM recommended for large datasets
 - S3-compatible storage (optional)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Installation
 
@@ -86,7 +86,7 @@ streamlit run src/audit/ui.py
 streamlit run src/reporting/dashboard.py
 ```
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ### Build and Run
 
@@ -118,7 +118,7 @@ docker-compose logs -f
 docker-compose down
 ```
 
-## 📊 Performance
+## Performance
 
 Target performance metrics for production deployment:
 
@@ -128,7 +128,7 @@ Target performance metrics for production deployment:
 - **Reduction**: 34B → 1.63M candidate pairs (95% reduction)
 - **Processing**: <5 minutes for 100K records
 
-## 🔧 Configuration
+## Configuration
 
 Key configuration sections in `config/provider_verify.yaml`:
 
@@ -157,7 +157,7 @@ blocking:
       keys: ["state_norm", "zip_norm[:3]", "last_name_metaphone"]
 ```
 
-## 🧪 Testing
+## Testing
 
 Run the test suite:
 
@@ -172,7 +172,7 @@ pytest tests/test_integration.py -v
 pytest --cov=src --cov-report=html tests/
 ```
 
-## 📈 Monitoring
+## Monitoring
 
 ### Performance Dashboard
 
@@ -190,14 +190,14 @@ Access the reporting dashboard at `http://localhost:8502`:
 - **Audit Queue Length**: Number of pending human reviews
 - **Model Performance**: Precision, recall, F1-score over time
 
-## 🔒 Security & Compliance
+## Security & Compliance
 
 - **HIPAA Compliance**: Built-in PHI protection and audit logging
 - **Encryption**: Support for encryption at rest and in transit
 - **Access Control**: Role-based permissions and audit trails
 - **Data Masking**: Automatic PHI de-identification in logs
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -219,7 +219,7 @@ flake8 src/
 pytest tests/
 ```
 
-## 📚 API Reference
+## API Reference
 
 ### Pipeline Interface
 
@@ -253,7 +253,7 @@ from src.match.scorer import apply_hybrid_scoring
 hybrid_df = apply_hybrid_scoring(scored_pairs, candidates, providers)
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -285,17 +285,17 @@ python -m src.pipeline.run_provider_verify \
     --input data.csv --source EHR
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Support
+## Support
 
 - **Documentation**: [Full Documentation](docs/)
 - **Issues**: [GitHub Issues](https://github.com/your-org/provider-verify/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/your-org/provider-verify/discussions)
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] Support for additional data sources (FHIR, HL7)
 - [ ] Advanced ML models (transformers, graph neural networks)
